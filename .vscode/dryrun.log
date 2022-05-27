@@ -1,0 +1,6 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'd:/Documents/web-development/golang-bank-app'
+make: Leaving directory 'd:/Documents/web-development/golang-bank-app'
+ 
+make: *** No targets.  Stop.
+
