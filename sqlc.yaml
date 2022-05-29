@@ -1,0 +1,12 @@
+version: "1"
+packages:
+  # can have sqlc generate multiple packages
+  - name: "db" # name of go package that will be generated
+    path: "./db/sqlc" # where to store outputed golang code for sql queries
+    queries: "./db/query/" # where our sql queries code is
+    schema: "./db/migration/" # points to db schema or migration files
+    engine: "postgresql" # postgresql or msql
+    emit_json_tags: true # adds JSON tags to generated structs
+    emit_prepared_queries: false # includes support for prepared queries
+    emit_interface: false # output a Querier interface in the generated package
+    emit_exact_table_names: false # struct names will mirror table names
