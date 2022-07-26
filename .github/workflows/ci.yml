@@ -24,7 +24,7 @@ jobs:
           POSTGRES_DB: simple_bank
         ports:
           # Maps tcp port 5435 on service container to the host (this is the port for our postgres)
-          - 5432:5435
+          - 5435:5432
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
