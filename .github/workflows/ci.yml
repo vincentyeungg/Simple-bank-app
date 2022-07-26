@@ -22,6 +22,9 @@ jobs:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: password
           POSTGRES_DB: simple_bank
+        ports:
+          # Maps tcp port 5435 on service container to the host (this is the port for our postgres)
+          - 5432:5435
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -39,8 +42,9 @@ jobs:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v3
 
+      # need to run migrations to have initial database schema available
       - name: Install golang-migrate
-        run:  |
+        run: |
           curl -L https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.linux-amd64.tar.gz | tar xvz
           sudo mv migrate /usr/bin/migrate
           which migrate
